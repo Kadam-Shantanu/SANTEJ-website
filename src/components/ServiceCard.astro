@@ -1,0 +1,44 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+  index: number;
+}
+
+const { title, description, image, features, index } = Astro.props;
+const animationDirection = index % 2 === 0 ? 'fade-right' : 'fade-left';
+---
+
+<div class="bg-white dark:bg-secondary-900 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300" data-aos={animationDirection}>
+  <div class="relative h-64 overflow-hidden">
+    <img 
+      src={image} 
+      alt={title} 
+      class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/70 to-transparent"></div>
+    <h3 class="absolute bottom-4 left-4 text-xl font-bold text-white">{title}</h3>
+  </div>
+  
+  <div class="p-6">
+    <p class="text-secondary-700 dark:text-secondary-200 mb-4">
+      {description}
+    </p>
+    
+    <div class="mt-4">
+      <h4 class="font-bold mb-2 text-secondary-900 dark:text-white">Features:</h4>
+      <ul class="grid grid-cols-2 gap-x-2 gap-y-1">
+        {features.map(feature => (
+          <li class="flex items-center text-secondary-700 dark:text-secondary-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary-500 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            {feature}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>

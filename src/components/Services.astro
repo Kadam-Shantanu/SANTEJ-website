@@ -1,0 +1,58 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: "Decorative LED Light Fixtures",
+    description: "High-quality, energy-efficient LED light fixtures designed for both aesthetics and functionality. Perfect for enhancing the beauty of any space.",
+    image: "https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    features: ["Custom designs", "Energy efficient", "Weather resistant", "Long lifespan"]
+  },
+  {
+    title: "Decorative Poles",
+    description: "Elegant and durable decorative poles that complement our lighting fixtures. Available in various heights, designs, and finishes.",
+    image: "https://images.pexels.com/photos/134065/pexels-photo-134065.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    features: ["Custom heights", "Multiple designs", "Corrosion resistant", "Easy installation"]
+  },
+  {
+    title: "Residential Lighting Solutions",
+    description: "Transform your residential spaces with our specially designed lighting solutions that create warm, inviting atmospheres.",
+    image: "https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    features: ["Indoor & outdoor options", "Smart lighting", "Aesthetic enhancement", "Mood lighting"]
+  },
+  {
+    title: "Industrial & Commercial Lighting",
+    description: "Robust lighting solutions designed for industrial and commercial spaces, focusing on durability, efficiency, and functionality.",
+    image: "https://images.pexels.com/photos/6507483/pexels-photo-6507483.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    features: ["High output", "Low maintenance", "Energy saving", "Industrial grade"]
+  }
+];
+---
+
+<section id="services" class="py-20 bg-secondary-100 dark:bg-secondary-800">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6 inline-block relative">
+        Our Services
+        <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary-500"></span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto text-secondary-700 dark:text-secondary-200">
+        We provide high-quality lighting solutions tailored to your specific needs. 
+        From decorative LED fixtures to custom poles, our products enhance the beauty 
+        and functionality of any space.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <ServiceCard 
+          title={service.title}
+          description={service.description}
+          image={service.image}
+          features={service.features}
+          index={index}
+        />
+      ))}
+    </div>
+  </div>
+</section>

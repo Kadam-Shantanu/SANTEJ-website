@@ -1,0 +1,63 @@
+---
+---
+
+<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="#" class="text-2xl font-display font-bold text-white drop-shadow-md">SANTEJ Lights</a>
+    
+    <nav class="hidden md:block">
+      <ul class="flex space-x-8">
+        <li><a href="#home" class="text-white hover:text-accent-300 transition-colors duration-300">Home</a></li>
+        <li><a href="#about" class="text-white hover:text-accent-300 transition-colors duration-300">About</a></li>
+        <li><a href="#services" class="text-white hover:text-accent-300 transition-colors duration-300">Services</a></li>
+        <li><a href="#contact" class="text-white hover:text-accent-300 transition-colors duration-300">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-secondary-900/95 backdrop-blur-md w-full">
+    <ul class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+      <li><a href="#home" class="block text-white hover:text-accent-300 transition-colors duration-300">Home</a></li>
+      <li><a href="#about" class="block text-white hover:text-accent-300 transition-colors duration-300">About</a></li>
+      <li><a href="#services" class="block text-white hover:text-accent-300 transition-colors duration-300">Services</a></li>
+      <li><a href="#contact" class="block text-white hover:text-accent-300 transition-colors duration-300">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Add links event listeners to close menu when clicked
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Change navbar background on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-secondary-900/80', 'backdrop-blur-md', 'shadow-md');
+      navbar?.classList.remove('bg-transparent');
+    } else {
+      navbar?.classList.remove('bg-secondary-900/80', 'backdrop-blur-md', 'shadow-md');
+      navbar?.classList.add('bg-transparent');
+    }
+  });
+</script>

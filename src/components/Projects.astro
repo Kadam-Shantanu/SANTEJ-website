@@ -1,0 +1,66 @@
+---
+const projects = [
+  {
+    title: "Residency Township Lighting",
+    image: "https://images.pexels.com/photos/681335/pexels-photo-681335.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    category: "Residential"
+  },
+  {
+    title: "Landscape Garden Illumination",
+    image: "https://images.pexels.com/photos/7453527/pexels-photo-7453527.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    category: "Landscaping"
+  },
+  {
+    title: "Commercial Plaza Lights",
+    image: "https://images.pexels.com/photos/3838285/pexels-photo-3838285.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    category: "Commercial"
+  },
+  {
+    title: "Industrial Complex Lighting",
+    image: "https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    category: "Industrial"
+  }
+];
+---
+
+<section class="py-20 bg-white dark:bg-secondary-900">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6 inline-block relative">
+        Our Projects
+        <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary-500"></span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto text-secondary-700 dark:text-secondary-200">
+        Browse through our portfolio of completed projects that showcase our expertise 
+        in providing exceptional lighting solutions across various sectors.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project, index) => (
+        <div 
+          class="group relative overflow-hidden rounded-lg shadow-lg h-72" 
+          data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+          data-aos-delay={100 * index}
+        >
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/90 via-secondary-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-accent-400 font-medium mb-2">{project.category}</span>
+            <h3 class="text-xl font-bold text-white mb-2">{project.title}</h3>
+            <a href="#" class="text-white flex items-center w-fit">
+              <span>View Details</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
